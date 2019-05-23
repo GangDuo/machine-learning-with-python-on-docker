@@ -8,3 +8,8 @@ RUN apt-get update && \
     locale-gen ja_JP.UTF-8
 
 ENV LC_ALL ja_JP.UTF-8
+
+RUN pip install --upgrade pip && \
+    pip install numpy scipy matplotlib scikit-learn
+
+WORKDIR /app
