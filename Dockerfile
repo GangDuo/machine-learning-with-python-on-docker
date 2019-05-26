@@ -18,6 +18,13 @@ RUN wget https://github.com/mzyy94/RictyDiminished-for-Powerline/archive/$RICTY_
     rm $RICTY_DIMINISHED_VERSION-powerline-early-2016.zip && \
     fc-cache -fv
 
+# Matplotlib用の設定ファイル
+WORKDIR /etc
+RUN { \
+      echo "backend : Agg"; \
+      echo "font.family : Ricty Diminished"; \
+    } > matplotlibrc
+
 RUN pip install --upgrade pip && \
     pip install numpy scipy matplotlib scikit-learn
 
