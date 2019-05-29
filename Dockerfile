@@ -25,7 +25,10 @@ RUN { \
       echo "font.family : Ricty Diminished"; \
     } > matplotlibrc
 
-RUN pip install --upgrade pip && \
-    pip install numpy scipy matplotlib scikit-learn
+RUN pip install --upgrade pip
 
 WORKDIR /app
+
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["/bin/bash"]
